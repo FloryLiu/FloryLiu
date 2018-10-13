@@ -10,48 +10,150 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   
   <link rel="stylesheet" type="text/css" href="css/designRoom.css">
+  <script src="js/designRoom.js"></script>
+  <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
 
+    * {
+        box-sizing: border-box;
+    }
+
+    .bg {
+        /* The image used */
+        background-image: url("Picture/smarthome1.jpg");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+  </style>
   
 </head>
 <body>
 
 <!-- Navbar-brand for Menu bar -->
-<nav class="navbar navbar-expand-sm bg-success navbar-dark ">
+<nav class="menubar navbar navbar-expand-sm navbar-dark menubar">
     <!-- Brand/logo -->
     <a class="navbar-brand" href="index.html">SmartHome</a>
     
     <!-- Links -->
     <ul class="navbar-nav ml-auto text-white">
+            <!-- <li class="nav-item">
+                <button type="button" class="btn addDevice dropdown-toggle dropright" data-toggle="dropdown">Add device</button>
+                <div id="add" class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Light</a>
+                </div>
+            </li> -->
             <li class="nav-item">
-            <a class="nav-link" href="openHome.html">Open home</a>
+                <a class="nav-link" href="#">Log out</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Log in</a>
-            </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <button type="button" class="btn btn-primary">Sign up</button>
-            </li>
+            </li> -->
     </ul>
 </nav>
 
-<div class="container">            
-    <div class="dropdown addDevice">
-        <button type="button add" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Add Device
-        </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Light</a>
-            <a class="dropdown-item" href="#">Door</a>
-            <a class="dropdown-item" href="#">Fan</a>
-            <a class="dropdown-item" href="#">Fridge</a>
-            <a class="dropdown-item" href="#">Washing machine</a>
-            <a class="dropdown-item" href="#">Heaters</a>
-            <a class="dropdown-item" href="#">Air conditional</a>
-            <a class="dropdown-item" href="#">Cooker</a>
-            <a class="dropdown-item" href="#">Smart Socket</a>
-            <a class="dropdown-item" href="#">Smart Switch</a>
+<div class="bg">
+    <div class="container">
+        <h2>Devices Table</h2>
+        <p>Please add some devices into this table</p>            
+        <table class="table table-striped table-bordered table-device">
+            <thead>
+            <tr>
+                <th class="device-name collumn">Device name</th>
+                <th class="device-type collumn">Type</th>
+                <th class="device-status collumn">Status</th>
+                <th colspan="2"  class="device-delete collumn"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- <tr>
+                <td>2</td>
+                <td></td>
+                <td>4</td>
+                <td></td>
+            </tr> -->
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-css addDevice" data-toggle="modal" data-target="#add">ADD</button>
+        <button type="button" class="btn btn-css saveroom">Save Changes</button>
+        <button type="button" class="btn btn-css closeroom">Close Room</button>
+        
+        <!-- Modal add devices -->
+        <div class="modal modalAdd" id="add" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add device</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="checkbox" id="defaultCheck" name="light" value="Light">
+                    <label for="defaultCheck" class="nameDevice">Light</label><br>
+                    <input class="enterlight  enternumberLight number" type="text" name="numberLight" placeholder="-- Enter the number of device --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="door" value="door">
+                    <label for="defaultCheck" class="nameDevice">Door</label><br>
+                    <input class="enterdoor  enternumberDoor" type="text" name="numberDoor" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="fan">
+                    <label for="defaultCheck" class="nameDevice">Fan</label><br>
+                    <input class="enterfan enternumberFan" type="text" name="numberFan" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="fridge">
+                    <label for="defaultCheck" class="nameDevice">Fridge</label><br>
+                    <input class="enterfridge enternumberFridge" type="text" name="numberFridge" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="wash">
+                    <label for="defaultCheck" class="nameDevice">Washing machine</label><br>
+                    <input class="enterwash enternumberWash" type="text" name="numberWash" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="heaters">
+                    <label for="defaultCheck" class="nameDevice">Heaters</label><br>
+                    <input class="enterheat enternumberHeaters" type="text" name="numberHeaters" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="air">
+                    <label for="defaultCheck" class="nameDevice">Air conditional</label><br>
+                    <input class="enterair enternumberAir" type="text" name="numberAir" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="cooker">
+                    <label for="defaultCheck" class="nameDevice">Cooker</label><br>
+                    <input class="entercook enternumberCook" type="text" name="numberCook" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="socket">
+                    <label for="defaultCheck" class="nameDevice">Smart socket</label><br>
+                    <input class="entersocket enternumberSocket" type="text" name="numberSocket" placeholder="-- Enter the number of devices --">
+                    <br><hr>
+                    <input type="checkbox" id="defaultCheck" name="switch">
+                    <label for="defaultCheck" class="nameDevice">Smart switch</label><br>
+                    <input class="enterswitch enternumberSwitch" type="text" name="numberSwitch" placeholder="-- Enter the number of devices --">
+                    <br><br>
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer" style="height:60px;">
+                    <button type="reset" class="btn btn-danger btn-reset">Reset</button>
+                    <button type="submit" class="btn btn-css btn-finish">Finish</button>
+                    <button type="submit" class="btn btn-secondary btn-cancel">Cancel</button>
+                </div>
+            
+                </div>
+            </div>
         </div>
-    </div> 
+
+    </div>
 </div>
 
 </body>
