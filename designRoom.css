@@ -1,0 +1,98 @@
+.container {
+    position: absolute;
+}
+
+h2 p{
+    margin: auto;
+}
+
+.menubar {
+    background-color:#339966;
+}
+
+/* css for button */
+.btn-css{
+    /* margin-right: 5px; */
+    background-color:#00cc66;
+    opacity: 0.9;
+}
+
+/* button add */
+.addDevice{
+    margin-left: 9%;
+    width: 62px;
+    position: absolute;
+}
+
+/* button save changes */
+.saveroom{
+    margin-left: 15%;
+    width: 142px;
+    position: absolute;
+}
+
+/* button close */
+.closeroom{
+    margin-left: 28%;
+    position: absolute;
+}
+
+/* table show the added devices */
+.table-device{
+    width: 100%;
+    height: auto;
+    margin-left: 9%;
+}
+
+/* collumns of table */
+.collumn{
+    background-color: #339966;
+    height: 50px;
+}
+
+.device-id{
+    width: 6%;
+}
+
+.device-name{
+    width: 20%;
+}
+
+.device-type{
+    width: 20%;
+}
+
+.device-status{
+    width: 36%;
+}
+
+.device-delete{
+    /* width: 35px; */
+    width: 9%;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+/* modal for add button */
+.modalAdd{
+    width: auto;
+    height:auto;
+    margin-left: 70%;
+    position: fixed;
+}
+
+/* input Number Device */
+.enter{
+    width: 63%;
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/* input Name Device */
+/* .name{
+    width: 63%;
+    position: fixed;
+    margin-bottom: 5px;
+} */
